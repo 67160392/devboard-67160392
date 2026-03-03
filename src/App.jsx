@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import PostCard from "./components/PostCard";
 
 const POSTS = [
   {
@@ -30,7 +31,12 @@ const USERS = [
 ];
 
 function App() {
-  return <Navbar />;
+  return (
+    <>
+      <Navbar />
+      <PostCard title="ทดสอบ" body="นี่คือเนื้อหาทดสอบ" />
+    </>
+  );
 }
 
 export default App;
