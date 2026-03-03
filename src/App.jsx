@@ -1,3 +1,5 @@
+import Navbar from "./components/Navbar";
+
 const POSTS = [
   {
     id: 1,
@@ -28,7 +30,7 @@ const USERS = [
 ];
 
 function App() {
-  return <></>;
+  return <Navbar />;
 }
 
 export default App;
