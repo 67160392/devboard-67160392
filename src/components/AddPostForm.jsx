@@ -27,12 +27,13 @@ function AddPostForm({ onAddPost }) {
       <h3 style={{ margin: "0 0 0.75rem", color: "#2d3748" }}>
         เพิ่มโพสต์ใหม่
       </h3>
-
+      {/* input สำหรับกรอกหัวข้อโพสต์ */}
       <input
         type="text"
         placeholder="หัวข้อโพสต์"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        maxLength={100} // จำกัดตัวอักษรไม่เกิน 100 ตัว
+        onChange={(e) => setTitle(e.target.value)} // เมื่อพิมพ์จะอัปเดตค่า title ใน state
         style={{
           width: "100%",
           padding: "0.5rem",
@@ -43,7 +44,17 @@ function AddPostForm({ onAddPost }) {
           boxSizing: "border-box",
         }}
       />
-
+      {/* แสดงจำนวนตัวอักษรที่พิมพ์ */}
+      <div
+        style={{
+          textAlign: "right",
+          fontSize: "1rem",
+          color: 100 - title.length < 10 ? "red" : "#718096", // ถ้าเหลือน้อยกว่า 10 ตัวอักษร เปลี่ยนเป็นสีแดง
+          marginBottom: "0.5rem",
+        }}
+      >
+        {title.length}/100
+      </div>
       <textarea
         placeholder="เนื้อหาโพสต์"
         value={body}
@@ -60,7 +71,6 @@ function AddPostForm({ onAddPost }) {
           boxSizing: "border-box",
         }}
       />
-
       <button
         type="submit"
         style={{
