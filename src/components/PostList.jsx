@@ -35,7 +35,6 @@ function PostList({ posts, favorites, onToggleFavorite }) {
           fontSize: "1rem",
           marginBottom: "1rem",
           boxSizing: "border-box",
-          backgroundColor: "#ffffff",
         }}
       />
 
