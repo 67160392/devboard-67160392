@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PostCard from "./PostCard";
 
-function PostList({ posts }) {
+function PostList({ posts, favorites, onToggleFavorite }) {
   const [search, setSearch] = useState("");
 
   // กรองโพสต์ตาม search
@@ -48,7 +48,13 @@ function PostList({ posts }) {
 
       {/* แสดงรายการโพสต์ */}
       {filtered.map((post) => (
-        <PostCard key={post.id} title={post.title} body={post.body} />
+        <PostCard
+          key={post.id}
+          title={post.title}
+          body={post.body}
+          isFavorite={favorites.includes(post.id)}
+          onToggleFavorite={() => onToggleFavorite(post.id)}
+        />
       ))}
     </div>
   );
